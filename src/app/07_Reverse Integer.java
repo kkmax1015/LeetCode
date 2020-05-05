@@ -11,25 +11,39 @@ class Solution7 {
         sc.close();
     }
 
+    //　自分の解答
     public static int reverse(int x) {
         String strx = Integer.toString(x);
         String strRes = "";
         int res = 0;
         try {
-            if(x >= 0){
-                for(int i = 0; i < strx.length(); i++){
-                    strRes = strx.substring(i,i+1) + strRes;
+            if (x >= 0) {
+                for (int i = 0; i < strx.length(); i++) {
+                    strRes = strx.substring(i, i + 1) + strRes;
                 }
                 res = Integer.parseInt(strRes);
             } else {
                 for (int i = 1; i < strx.length(); i++) {
-                    strRes = strx.substring(i, i+1) + strRes;
+                    strRes = strx.substring(i, i + 1) + strRes;
                 }
                 res = Integer.parseInt(strRes) * -1;
-            }         
+            }
         } catch (NumberFormatException e) {
             res = 0;
         }
         return res;
+    }
+    
+    // 模範解答
+    public int reverse_answer(int x) {
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > Integer.MAX_VALUE/10 || (rev == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
+            if (rev < Integer.MIN_VALUE/10 || (rev == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
     }
 }
