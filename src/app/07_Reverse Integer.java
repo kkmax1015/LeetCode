@@ -35,7 +35,7 @@ class Solution7 {
     }
     
     // 模範解答
-    public int reverse_answer(int x) {
+    public static int reverse_answer(int x) {
         int rev = 0;
         while (x != 0) {
             int pop = x % 10;
