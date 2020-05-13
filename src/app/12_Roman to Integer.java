@@ -9,9 +9,7 @@ class Solution12 {
     public static void main(String[] args) throws Exception {
         Scanner sc = null;
         sc = new Scanner(System.in);
-        //int ans = romanToInt(sc.nextLine());
-        Solution12 sl = new Solution12();
-        int ans = sl.romanToInt_answer(sc.nextLine());
+        int ans = romanToInt(sc.nextLine());
         System.out.println(ans);
         sc.close();
     }
