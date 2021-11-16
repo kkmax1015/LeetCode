@@ -38,10 +38,33 @@ class Solution:
         return ans
             
         
+class Solution_answer:
+    def romanToInt(self, s: str) -> int:
 
+        # 記号と値のdictを作成しておく
+        dict_value = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+        ans = 0
+        before_value = 0
+        # 文字列を右端から一文字ずつ切り出し
+        for split_s in s[::-1]:
+            value = dict_value.get(split_s)
+            # ローマ数字は基本的に大きい数字から記載される。
+            # 一部の組み合わせ(IV:4など)は例外で小さい数字が先に来るので、前の数字より小さい場合は減算する。
+            if value >= before_value:
+                ans += value
+            else:
+                ans -= value
+            before_value = value
+        return ans
 
-
-
-ins = Solution()
+ins = Solution_answer()
 ans = ins.romanToInt('MCMXCIV')
 print(ans)
