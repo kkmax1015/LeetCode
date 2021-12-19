@@ -25,6 +25,29 @@ class Solution:
         else:
             return False
 
+class Solution_Answer:
+    # スタックを使用する。
+    # 基本は自力回答と考え方は同じ
+    def isValid(self, s: str) -> bool:
+        if not len(s)%2==0:
+            return False
+        stack = []
+        mapping = {')':'(', '}':'{', ']':'['}
+
+        for char in s:
+            # 閉じ括弧の場合
+            if char in mapping:
+                # 現在の開いている記号のトップを取得
+                top_element = stack.pop() if stack else '#'
+                # 対応する閉じ括弧でなければfalse
+                if top_element != mapping[char]:
+                    return False
+            else:
+                stack.append(char)
+
+        return not stack 
+            
+
 
 ins = Solution()
 s = "(){}}{"
