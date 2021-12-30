@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch Solution7",
+            "request": "launch",
+            "mainClass": "app.java.Solution7",
+            "projectName": "LeetCode"
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
