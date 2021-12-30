@@ -9,7 +9,6 @@ class Solution:
                 ans += 1
 
         nums[ans:] = ['_' for num in nums[ans:]]
-        print(nums)
         return (ans)
 
 
